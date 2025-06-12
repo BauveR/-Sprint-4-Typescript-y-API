@@ -1,5 +1,6 @@
-import type { IJoke } from "../interface/Ijoke.interface";
 import { JokeModel } from "../models/joke.model";
+import { JokeView } from "../views/Joke.view";
+import { IJoke } from "../interface/Ijoke.interface";
 
 export class JokeController{
     private model: typeof JokeModel;
