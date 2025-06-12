@@ -1,4 +1,4 @@
-import { JokeController } from "./controllers/joke.controller";
+import { JokeController } from "./controllers/Joke.controller";
 
 document.addEventListener(`DOMContentLoaded`, () => {
     new JokeController();

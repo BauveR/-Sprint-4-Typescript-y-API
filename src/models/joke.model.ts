@@ -1,4 +1,4 @@
-import { IJoke } from "../interface/Ijoke.interface.ts";
+import { IJoke } from "../interface/Ijoke.interface";
 
 export class JokeModel {
 
@@ -14,6 +14,7 @@ export class JokeModel {
       }
 
       const data: IJoke = await response.json();
+      console.log(data);
       return data;
 
     } catch (error) {
