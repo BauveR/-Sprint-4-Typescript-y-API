@@ -1,4 +1,4 @@
-import { IJoke } from "../interface/Ijoke.interface";
+import type { IJoke } from "../interface/Ijoke.interface"; 
 
 export class JokeModel {
 
