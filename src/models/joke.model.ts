@@ -1,30 +1,35 @@
 import type { IJoke } from "../interface/Ijoke.interface"; 
+import { apiJokes1,apiJokes2 } from "../services/apiConfig";
 
 export class JokeModel {
 
-  public static async fetchJoke(): Promise<IJoke> {
-    try {
-      const url = "https://icanhazdadjoke.com/"
-      const response = await fetch(url, {
-        headers: { "Accept": "application/json" }
-      });
+  static async fetchJoke(): Promise<IJoke> {
+      const sources =[
+        this.fetchFromChuck,
+        this.fetchFromJoke
+      ];
 
-      if (!response.ok) {
-        throw new Error(`Error Status: ${response.status}`);
-      }
+      const randomIndex = Math.floor(Math.random() * sources.length);
+      return await sources[randomIndex]();
+    }
+    private static async fetchFromChuck(): Promise<IJoke> {
+      const res = await  fetch(apiJokes1);
+      const data = await res.json();
 
-      const data: IJoke = await response.json();
-      console.log(data)
-      return data;
-
-    } catch (error) {
-      console.error("Error fetching joke", error);
       return {
-        id: "error",
-        joke: "the joke is not available",
-        status: 500
+        joke:data.value,
+        status: res.status
+      };
+    }
+
+    private static async fetchFromJoke(): Promise<IJoke> {
+      const res = await  fetch(apiJokes2);
+      const data = await res.json();
+
+      return {
+        joke: `${data.setup} ${data.punchline}`,
+        status: res.status
       };
     }
   }
-}
 
