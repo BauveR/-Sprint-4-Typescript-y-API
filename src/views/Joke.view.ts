@@ -3,11 +3,14 @@ export class JokeView {
     private jokeElement: HTMLElement;
     private button: HTMLButtonElement;
     private ratingButtons: NodeListOf<HTMLButtonElement>;
+    private weatherElement: HTMLElement;
+    
 
     constructor() {
         this.jokeElement = document.getElementById('joke-container') as HTMLElement;
         this.button = document.getElementById('joke-button') as HTMLButtonElement;
         this.ratingButtons = document.querySelectorAll<HTMLButtonElement>('#rating-buttons button');
+        this.weatherElement = document.getElementById('weather-container') as HTMLElement;
     }
     public displayJoke(joke: string): void{
         this.jokeElement.textContent = joke;
@@ -32,4 +35,9 @@ export class JokeView {
           });
         });
     }
+    public displayWeather(info: string): void {
+        this.weatherElement.textContent = info;
+    }
+    
+    
 }

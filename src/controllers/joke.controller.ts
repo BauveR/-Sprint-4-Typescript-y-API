@@ -2,6 +2,7 @@ import { JokeModel } from "../models/joke.model";
 import { JokeView } from "../views/joke.view";
 import type { IJoke } from "../interface/Ijoke.interface"; 
 import type { IRated } from "../interface/Ijoke.interface";
+import { fetchWeather } from "../services/weather.service";
 
 export class JokeController{
   
@@ -13,6 +14,7 @@ export class JokeController{
         this.view = new JokeView();
         this.view.bindGetJoke(this.handleGetJoke.bind(this));
         this.view.bindRateJoke(this.handleRating.bind(this));
+        this.showWeather();
     }
 
     private async handleGetJoke():Promise<void>{
@@ -21,7 +23,7 @@ export class JokeController{
             const JokeData: IJoke = await JokeModel.fetch();
             this.currentJoke =JokeData.joke;
 
-            if (JokeData.status! >= 400){
+            if (JokeData.status !== undefined && JokeData.status >= 400) {
                 this.view.showError(JokeData.joke);
             }else{
                 this.view.displayJoke(JokeData.joke);
@@ -43,4 +45,16 @@ export class JokeController{
 
         console.log("chistes valorados", this.ratedJokes);
     }
-}
+    private async showWeather(): Promise<void> {
+        try {
+          const coords = { latitude: 41.39, longitude: 2.17 };
+          const weatherInfo = await fetchWeather(coords.latitude, coords.longitude);
+          this.view.displayWeather(weatherInfo);
+        } catch (error) {
+          console.error("Error al obtener el clima:", error);
+          this.view.displayWeather("No se pudo obtener el clima");
+        }
+      }
+      
+    }
+      
