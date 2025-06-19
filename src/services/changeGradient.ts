@@ -1,0 +1,21 @@
+import { gradients } from '../styles/backgroundGradients';
+
+let lastIndex = -1;
+
+export function changeGradient() {
+  const body = document.getElementById("main-body") as HTMLElement;
+  if (!body) return;
+
+  // Limpia clases anteriores
+  gradients.forEach(g => body.classList.remove(...g.split(" ")));
+
+  // Evita repetir el mismo gradiente dos veces seguidas
+  let newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * gradients.length);
+  } while (newIndex === lastIndex);
+  lastIndex = newIndex;
+
+  const randomGradient = gradients[newIndex];
+  body.classList.add(...randomGradient.split(" "));
+}

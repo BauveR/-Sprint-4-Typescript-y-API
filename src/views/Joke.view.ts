@@ -1,3 +1,5 @@
+import { changeGradient } from "../services/changeGradient";
+
 export class JokeView {
 
     private jokeElement: HTMLElement;
@@ -17,7 +19,10 @@ export class JokeView {
     }
 
     public bindGetJoke(handler: ()=> Promise<void>):void{
-        this.button.addEventListener('click', ()=> handler());
+        this.button.addEventListener('click', () => {
+            handler();
+            changeGradient();
+        });
     }
     public showLoading(): void {
         this.jokeElement.textContent = " Cargando chiste...";

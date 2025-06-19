@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <link href="./src/styles/output.css" rel="stylesheet">
+  <meta charset="UTF-8" />
   <title>Jokes with TypeScript</title>
-
+  <link href="./src/styles/output.css" rel="stylesheet" />
 </head>
-<body class="">
-  
-  <div id="weather-container">Cargando clima...</div>
-  <div id="joke-container">Presiona el botón para reir</div>
-  <button id="joke-button">Obtener Chiste</button>
+<body   id="main-body"
+class="min-h-screen flex flex-col justify-center items-center
+       bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500
+       text-white p-6 relative
+       transition-colors duration-1000 ease-in-out">
 
-  <div id="rating-buttons">
-    <button data-rating="1">😐</button>
-    <button data-rating="2">😀</button>
-    <button data-rating="3">🤣</button>
+  <div id="weather-container" class="fixed top-4 left-1/2 transform -translate-x-1/2 text-xl font-semibold z-10">
+
   </div>
-  
+
+
+  <div id="joke-container" class="mb-6 mt-24 text-center text-5xl max-w-xl"></div>
+
+  <button id="joke-button"
+  class="fixed bottom-24 left-1/2 transform -translate-x-1/2
+         px-6 py-3 bg-white text-purple-700 font-bold rounded-md shadow-lg
+         hover:bg-purple-100 transition z-20">
+Make me Laugh
+</button>
+
+<div id="rating-buttons"
+class="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-7 z-20">
+<button data-rating="1" class="text-7xl hover:scale-125 transition">😐</button>
+<button data-rating="2" class="text-7xl hover:scale-125 transition">😀</button>
+<button data-rating="3" class="text-7xl hover:scale-125 transition">🤣</button>
+</div>
+
   <script src="./src/app.ts" type="module"></script>
+</body>
+
 </body>
 </html>
