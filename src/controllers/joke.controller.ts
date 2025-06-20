@@ -3,6 +3,8 @@ import { JokeView } from "../views/joke.view";
 import type { IJoke } from "../interface/Ijoke.interface"; 
 import type { IRated } from "../interface/Ijoke.interface";
 import { fetchWeather } from "../services/weather.service";
+import { fetchArtImage } from "../services/art.services";
+
 
 export class JokeController{
   
@@ -20,6 +22,8 @@ export class JokeController{
     private async handleGetJoke():Promise<void>{
         try{
             this.view.showLoading();
+            this.view.hideImage();
+
             const JokeData: IJoke = await JokeModel.fetch();
             this.currentJoke =JokeData.joke;
 
@@ -27,6 +31,13 @@ export class JokeController{
                 this.view.showError(JokeData.joke);
             }else{
                 this.view.displayJoke(JokeData.joke);
+            }
+
+            const imageUrl = await fetchArtImage();
+            console.log("Museum image:", imageUrl);
+
+            if (imageUrl){
+                this.view.displayImage(imageUrl);
             }
         }catch(error){
             this.view.showError("Error al obtener el chiste");

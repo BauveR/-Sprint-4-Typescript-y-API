@@ -6,6 +6,7 @@ export class JokeView {
     private button: HTMLButtonElement;
     private ratingButtons: NodeListOf<HTMLButtonElement>;
     private weatherElement: HTMLElement;
+    private imageElement: HTMLImageElement;
     
 
     constructor() {
@@ -13,6 +14,7 @@ export class JokeView {
         this.button = document.getElementById('joke-button') as HTMLButtonElement;
         this.ratingButtons = document.querySelectorAll<HTMLButtonElement>('#rating-buttons button');
         this.weatherElement = document.getElementById('weather-container') as HTMLElement;
+        this.imageElement = document.getElementById('joke-image') as HTMLImageElement;
     }
     public displayJoke(joke: string): void{
         this.jokeElement.textContent = joke;
@@ -25,7 +27,7 @@ export class JokeView {
         });
     }
     public showLoading(): void {
-        this.jokeElement.textContent = " Cargando chiste...";
+        this.jokeElement.textContent = " Loading Joke...";
     }
     public showError(message: string): void{
         this.jokeElement.textContent = message;
@@ -43,6 +45,35 @@ export class JokeView {
     public displayWeather(info: string): void {
         this.weatherElement.textContent = info;
     }
+    public async displayImage(url: string | null): Promise<void> {
+        if (!url) {
+          
+            this.imageElement.classList.remove('opacity-100');
+            this.imageElement.classList.add('opacity-0');
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            this.imageElement.classList.add('hidden');
+            return;
+        }
     
+        if (!this.imageElement.classList.contains('hidden')) {
     
+            this.imageElement.classList.remove('opacity-100');
+            this.imageElement.classList.add('opacity-0');
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+
+        this.imageElement.src = url;
+    
+        this.imageElement.onload = () => {
+            this.imageElement.classList.remove('hidden');
+            this.imageElement.classList.remove('opacity-0');
+            this.imageElement.classList.add('opacity-100');
+        };
+    }
+    public async hideImage(): Promise<void> {
+        this.imageElement.classList.remove('opacity-100');
+        this.imageElement.classList.add('opacity-0');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        this.imageElement.classList.add('hidden');
+    }
 }
