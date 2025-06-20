@@ -3,7 +3,7 @@ import { gradients } from '../styles/backgroundGradients';
 let lastIndex = -1;
 
 export function changeGradient() {
-  const body = document.getElementById("joke-panel") as HTMLElement;
+  const body = document.getElementById("main-body") as HTMLElement;
   if (!body) return;
 
   gradients.forEach(g => body.classList.remove(...g.split(" ")));
