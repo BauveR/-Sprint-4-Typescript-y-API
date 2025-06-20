@@ -9,28 +9,30 @@
   id="main-body"
   class="min-h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 text-white flex items-center justify-center p-4"
 >
-  <!-- Tarjeta flotante contenedor de las dos columnas -->
+  <!-- Tarjeta flotante con dos columnas -->
   <div
-    class="flex flex-col md:flex-row w-full max-w-6xl bg-gray-900 bg-opacity-90 rounded-xl shadow-2xl overflow-hidden"
-    style="height: 80vh;"
-  >
+  class="flex flex-col md:flex-row w-full max-w-6xl bg-white/10 backdrop-blur-md rounded-[2rem] shadow-2xl border border-white/20"
+  style="height: 80vh;"
+>
 
-    <!-- Panel izquierdo: imagen o fondo oscuro -->
+    <!-- Panel izquierdo: imagen de fondo + imagen generada -->
     <div
       id="left-panel"
-      class="relative w-full md:w-[60%] flex justify-center items-center bg-black bg-opacity-70"
+      class=" ml-16 relative w-full md:w-[60%] flex justify-center items-center bg-no-repeat bg-center bg-contain"
+      style="background-image: url('public/assets/images/John\ Currin\ Blond\ Angel.png');"
     >
-      <img
-        id="joke-image"
-        class="object-cover w-full h-full rounded-none shadow-lg transition-opacity duration-1000 ease-in-out opacity-0"
-        alt="Imagen generada"
-      />
+    <img
+  id="joke-image"
+  class="max-w-[90%] h-auto object-contain opacity-100 hidden"
+  alt="Imagen generada"
+/>
+  
     </div>
 
     <!-- Panel derecho: contenido -->
     <div
       id="joke-panel"
-      class="w-full md:w-[40%] flex flex-col justify-between p-6"
+      class="w-full md:w-[40%] flex flex-col justify-between p-6 bg-transparent"
     >
       <!-- Clima -->
       <div

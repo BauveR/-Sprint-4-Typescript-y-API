@@ -45,35 +45,36 @@ export class JokeView {
     public displayWeather(info: string): void {
         this.weatherElement.textContent = info;
     }
-    public async displayImage(url: string | null): Promise<void> {
+    public displayImage(url: string | null): void {
         if (!url) {
-          
-            this.imageElement.classList.remove('opacity-100');
-            this.imageElement.classList.add('opacity-0');
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            this.imageElement.classList.add('hidden');
-            return;
+     
+          this.imageElement.src = '';
+          this.imageElement.classList.add('hidden');
+          return;
         }
+      
     
-        if (!this.imageElement.classList.contains('hidden')) {
-    
-            this.imageElement.classList.remove('opacity-100');
-            this.imageElement.classList.add('opacity-0');
-            await new Promise(resolve => setTimeout(resolve, 1000));
-        }
-
         this.imageElement.src = url;
-    
-        this.imageElement.onload = () => {
-            this.imageElement.classList.remove('hidden');
-            this.imageElement.classList.remove('opacity-0');
-            this.imageElement.classList.add('opacity-100');
-        };
-    }
-    public async hideImage(): Promise<void> {
+        this.imageElement.classList.remove('hidden');
+        this.imageElement.classList.remove('opacity-0');
+        this.imageElement.classList.add('opacity-100');
+      }
+      
+      
+      public async hideImage(): Promise<void> {
+        const leftPanel = document.getElementById('left-panel');
+        if (!leftPanel) return;
+      
         this.imageElement.classList.remove('opacity-100');
         this.imageElement.classList.add('opacity-0');
+      
         await new Promise(resolve => setTimeout(resolve, 1000));
+      
         this.imageElement.classList.add('hidden');
-    }
+      
+     
+        leftPanel.style.backgroundImage = "url('public/assets/images/John Currin Blond Angel.png')";
+      }
+      
+      
 }

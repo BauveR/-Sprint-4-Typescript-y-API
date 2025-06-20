@@ -22,7 +22,7 @@ export class JokeController{
     private async handleGetJoke():Promise<void>{
         try{
             this.view.showLoading();
-            this.view.hideImage();
+        
 
             const JokeData: IJoke = await JokeModel.fetch();
             this.currentJoke =JokeData.joke;
