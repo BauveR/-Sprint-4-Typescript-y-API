@@ -11,82 +11,78 @@
 >
   <!-- Tarjeta flotante con dos columnas -->
   <div
-  class="flex flex-col md:flex-row w-full max-w-6xl bg-white/10 backdrop-bl-md rounded-[2rem] md:rounded-bl-[30rem] shadow-2xl border border-white/20 
-         h-auto md:h-[80vh] min-h-[600px] sm:min-h-[700px] overflow-hidden"
->
-
+    class="flex flex-col md:flex-row w-full max-w-6xl bg-white/10 backdrop-bl-md rounded-[2rem] md:rounded-bl-[30rem] shadow-2xl border border-white/20 
+           h-auto md:h-[80vh] min-h-[600px] sm:min-h-[700px] overflow-hidden"
+  >
     <!-- Panel izquierdo: imagen de fondo -->
     <div
-    id="left-panel"
-    class="relative w-full sm:px-4 sm:pt-6 md:w-[60%] flex flex-col justify-start items-start sm:items-center md:items-start ml-4 sm:ml-8 md:ml-20"
-  >
-    <h1
-      class="absolute top-4 sm:top-6 left-4 sm:left-0 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-400 text-xl sm:text-3xl md:text-5xl font-extrabold drop-shadow"
+      id="left-panel"
+      class="relative w-full sm:px-4 sm:pt-6 md:w-[60%] 
+             flex flex-col justify-start items-start 
+             sm:items-center md:items-start ml-4 sm:ml-8 md:ml-20"
+      style="
+        background-image: url('public/assets/images/John Currin Blond Angel.png');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: contain;
+      "
     >
-      JOKES + ART APIS
-    </h1>
-  
-    <img
-      src="public/assets/images/John Currin Blond Angel.png"
-      alt="John Currin Blond Angel"
-      class="mt-24 sm:mt-32 mx-auto w-[90%] max-w-sm md:max-w-md h-auto object-contain rounded-3xl shadow-lg"
-    />
-  </div>
-  
+      <h1
+        class="relative top-10 sm:top-10 
+               w-[90%] sm:w-auto 
+               mx-auto text-center 
+               text-transparent bg-clip-text 
+               bg-gradient-to-r from-pink-500 to-orange-400 
+               text-4xl sm:text-5xl md:text-6xl 
+               font-extrabold drop-shadow"
+      >
+        JOKES + ART APIS
+      </h1>
+
+      <!-- Contenedor circular -->
+      <div class="w-[400px] h-[400px] rounded-full overflow-hidden mx-auto mb-4">
+        <img
+          id="joke-image"
+          class="w-full h-full object-cover opacity-100 hidden"
+          alt="Imagen generada"
+        />
+      </div>
+    </div>
 
     <!-- Panel derecho: contenido -->
     <div
       id="joke-panel"
-      class="w-full md:w-[40%] flex flex-col justify-between p-6 bg-transparent"
+      class="w-full sm:w-full md:w-[40%] flex flex-col justify-between p-4 sm:p-6 bg-transparent"
     >
       <!-- Clima -->
       <div
         id="weather-container"
-        class="text-center text-lg font-semibold md:mt-9 mb-2"
+        class="text-center text-base sm:text-lg font-semibold mt-4 sm:mt-8 mb-2"
       ></div>
 
-      <img
-      id="joke-image"
-      class="max-w-[90%] h-auto object-contain opacity-100 hidden"
-      alt="Imagen generada"
-    />
       <!-- Chiste centrado -->
       <div class="flex-1 flex items-center justify-center text-center">
         <div
           id="joke-container"
-          class="text-[clamp(1rem,3vw,1.5rem)] font-bold leading-tight max-w-md px-2">
+          class="text-[clamp(1rem,4vw,1.6rem)] font-bold leading-tight max-w-md px-2"
+        >
           <!-- Aquí se mostrará el chiste -->
         </div>
       </div>
 
       <!-- Botón y emojis -->
-      <div class="flex flex-col items-center mt-4 mb-2">
+      <div class="flex flex-col items-center mt-4 mb-4">
         <button
           id="joke-button"
-          class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-100 dark:focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-100 dark:focus:ring-pink-200 font-medium rounded-lg text-base sm:text-lg px-6 py-3 mb-4"
         >
           Make me Laugh
         </button>
 
-        <div id="rating-buttons" class="flex space-x-7">
-          <button
-            data-rating="1"
-            class="text-5xl hover:scale-125 transition"
-          >
-            😐
-          </button>
-          <button
-            data-rating="2"
-            class="text-5xl hover:scale-125 transition"
-          >
-            😀
-          </button>
-          <button
-            data-rating="3"
-            class="text-5xl hover:scale-125 transition"
-          >
-            🤣
-          </button>
+        <div id="rating-buttons" class="flex space-x-5 sm:space-x-7">
+          <button data-rating="1" class="text-4xl sm:text-5xl hover:scale-125 transition">😐</button>
+          <button data-rating="2" class="text-4xl sm:text-5xl hover:scale-125 transition">😀</button>
+          <button data-rating="3" class="text-4xl sm:text-5xl hover:scale-125 transition">🤣</button>
         </div>
       </div>
     </div>
