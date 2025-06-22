@@ -47,13 +47,14 @@ export class JokeView {
     }
     public displayImage(url: string | null): void {
         if (!url) {
-     
-          this.imageElement.src = '';
-          this.imageElement.classList.add('hidden');
+    
+          this.imageElement.src = 'public/assets/images/John Currin Blond Angel.png';
+          this.imageElement.classList.remove('hidden');
+          this.imageElement.classList.remove('opacity-0');
+          this.imageElement.classList.add('opacity-100');
           return;
         }
       
-    
         this.imageElement.src = url;
         this.imageElement.classList.remove('hidden');
         this.imageElement.classList.remove('opacity-0');
@@ -72,8 +73,11 @@ export class JokeView {
       
         this.imageElement.classList.add('hidden');
       
-     
-        leftPanel.style.backgroundImage = "url('public/assets/images/John Currin Blond Angel.png')";
+  
+        this.imageElement.src = 'public/assets/images/John Currin Blond Angel.png';
+        this.imageElement.classList.remove('hidden');
+        this.imageElement.classList.remove('opacity-0');
+        this.imageElement.classList.add('opacity-100');
       }
       
       

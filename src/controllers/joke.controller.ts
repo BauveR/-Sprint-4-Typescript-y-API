@@ -22,6 +22,7 @@ export class JokeController{
     private async handleGetJoke():Promise<void>{
         try{
             this.view.showLoading();
+            this.view.displayImage(null);
         
 
             const JokeData: IJoke = await JokeModel.fetch();
@@ -35,6 +36,7 @@ export class JokeController{
 
             const imageUrl = await fetchArtImage();
             console.log("Museum image:", imageUrl);
+            this.view.displayImage(imageUrl);
 
             if (imageUrl){
                 this.view.displayImage(imageUrl);
