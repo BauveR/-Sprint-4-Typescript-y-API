@@ -1,7 +1,8 @@
-
+import { API_CONFIG } from "./apiConfig";
 
 export async function fetchArtImage(): Promise<string | null> {
-    const url = "https://api.artic.edu/api/v1/artworks?page=1&limit=100";
+    const url = API_CONFIG.getArtworksUrl();
+
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Error Art Institute: ${res.status}`);
@@ -16,8 +17,7 @@ export async function fetchArtImage(): Promise<string | null> {
 
       if (!imageId) return null;
 
-      const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`;
-      return imageUrl;
+      return API_CONFIG.getImageUrl(imageId);
   
     } catch (error) {
       console.error("Error al obtener imagen de art Instirute:", error);
