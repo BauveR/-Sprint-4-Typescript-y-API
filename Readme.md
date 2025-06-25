@@ -58,6 +58,8 @@ npm install
 # Run the development server
 npm run dev
 
+---
+
 ## 🖼️ Image and API Credits
 
 - Images from: [Art Institute of Chicago API](https://api.artic.edu/docs/)  
