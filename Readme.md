@@ -14,7 +14,7 @@ The goal is to manipulate the DOM, learn TypeScript, and understand how **Vite**
 
 ## 🔍 Preview
 
-![Preview](https://your-domain.com/assets/images/Screen%20Recording%202025-06-25%20at%203.14.50%20p.gif)
+![Preview](assets/images/Screen%20Recording%202025-06-25%20at%203.14.50%20p.gif)
 
 
 ---
@@ -60,7 +60,7 @@ npm run dev
 
 ---
 
-## 🖼️ Image and API Credits
+### 🖼️ Image and API Credits
 
 - Images from: [Art Institute of Chicago API](https://api.artic.edu/docs/)  
 - Jokes from: [icanhazdadjoke API](https://icanhazdadjoke.com/api)  
