@@ -1,5 +1,5 @@
 import { JokeModel } from "../models/joke.model";
-import { JokeView } from "../views/joke.view";
+import { JokeView } from "../views/Joke.view";
 import type { IJoke } from "../interface/Ijoke.interface"; 
 import type { IRated } from "../interface/Ijoke.interface";
 import { fetchWeather } from "../services/weather.service";
