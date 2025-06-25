@@ -1,4 +1,4 @@
-import { weatherIconRanges } from "../interface/weather.cons";
+import { weatherIconRanges } from "./weather.cons";
 
   export function getWeatherIcon(code: number): string {
     for (const range of weatherIconRanges) {

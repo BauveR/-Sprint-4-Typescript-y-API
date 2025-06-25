@@ -1,4 +1,4 @@
-import type { WeatherIconRange } from "./weather.interface";
+import type { WeatherIconRange } from "../interface/weather.interface";
 
 export const weatherIconRanges: WeatherIconRange[] = [
     { maxCode: 0, icon: "🌞" },
