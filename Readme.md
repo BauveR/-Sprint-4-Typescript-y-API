@@ -14,7 +14,8 @@ The goal is to manipulate the DOM, learn TypeScript, and understand how **Vite**
 
 ## 🔍 Preview
 
-![Preview](public/assets/images/Screen%20Recording%202025-06-25%20at%203.14.50%20p.gif)
+![Preview](assets/images/Screen%20Recording%202025-06-25%20at%203.14.50%20p.gif)
+
 
 ---
 
