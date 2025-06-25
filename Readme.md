@@ -14,7 +14,7 @@ The goal is to manipulate the DOM, learn TypeScript, and understand how **Vite**
 
 ## 🔍 Preview
 
-![Preview](public/assets/images/preview.giff)
+![Preview](public/assets/images/preview.gif)
 
 
 ---
