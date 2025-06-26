@@ -47,7 +47,7 @@ The goal is to manipulate the DOM, learn TypeScript, and understand how **Vite**
 
 ```bash
 # Clone this repository
-git clone https://github.com/your-username/jokes-art-weather-app.git
+git clone https://github.com/BauveR/-Sprint-4-Typescript-y-API.git
 
 # Go into the project directory
 cd -Sprint-4-Typescript-y-API
